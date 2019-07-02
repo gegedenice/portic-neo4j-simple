@@ -1,0 +1,20 @@
+{
+  "name": "portic-neo4j-simple",
+  "version": "1.0.0",
+  "description": "Neo4j and 3d-force-graph with very simple data modeling",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "GG",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "neo4j-driver": "^1.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
