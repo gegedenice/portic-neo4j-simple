@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 const path = require('path');
 const port = process.env.PORT || 3003;
+const server = require('http').Server(app);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
