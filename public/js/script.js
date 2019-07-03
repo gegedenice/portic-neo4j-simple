@@ -7,7 +7,7 @@ const driver = neo4j.v1.driver("bolt://ws-10-0-1-112-33414.neo4jsandbox.com:443"
         .then(function (result) {
 getData(result)
 session.close();
-       
+ //event filtre select      
   $('#ships-pane').change(function() {
     var val = this.value;
     var newData = {};
@@ -26,7 +26,7 @@ getData(newData)
         .catch(function (error) {
           console.log(error);
         });
-       
+    //populate select with dynamic data from api   
         $.getJSON("/api/ships",
         function(data) {
             var select = $("#ships-pane");

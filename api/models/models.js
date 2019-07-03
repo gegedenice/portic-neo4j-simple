@@ -1,11 +1,9 @@
 'user strict';
 var driver = require('./db.js');
-
+//Juste pour tester
 exports.travels = function (req, res) {
 var travels = [];
-    //var unicas = [];
     var session = driver.session();
-    // Run a Cypher statement, reading the result in a streaming manner as records arrive:
     session
    .run("MATCH (p1:Port)-[g:GO_TO]->(p2:Port) RETURN p1,g,p2 LIMIT 50")
   .subscribe({
@@ -13,7 +11,6 @@ var travels = [];
             travels.push(record)
         },
         onCompleted: function () {
-            // Completed!
             session.close();
             res.send(travels);
         },
@@ -22,12 +19,10 @@ var travels = [];
         }
     });
   };
-
+//pour api ships
   exports.ships = function (req, res) {
     var ships = [];
-        //var unicas = [];
         var session = driver.session();
-        // Run a Cypher statement, reading the result in a streaming manner as records arrive:
         session
        .run("match (n)-[r]->(m) return distinct(r.ship),count(r.ship) order BY count(r.ship) DESC")
       .subscribe({
@@ -35,7 +30,6 @@ var travels = [];
                 ships.push({name:record._fields[0],count:record._fields[1].low})
             },
             onCompleted: function () {
-                // Completed!
                 session.close();
                 res.send(ships);
             },
